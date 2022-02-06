@@ -109,7 +109,13 @@ click on + - button will call onChange event.
         // how many decimal input accept defualt is infinty
         decimalPrecision:2,
         // what char replaced to input if user paste some illeglal value defualt is '' (empty string)
-        invalidNumberReplacement:'0'
+        invalidNumberReplacement:'0',
+        // separate every 3 number with comma like 1000000 => 1,000,000
+        useThousandSeparator:false,
+        // which char we use to separate thousand number
+        thousandSeparator:',',
+        //can input accept negativenumber or not
+        acceptNegative:true,
     }
 ```
 ```jsx
