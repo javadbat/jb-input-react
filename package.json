@@ -14,7 +14,7 @@
     "input",
     "react component"
   ],
-  "version": "1.0.7",
+  "version": "1.0.8",
   "bugs": "https://github.com/javadbat/jb-input-react/issues",
   "license": "MIT",
   "files": [
@@ -29,6 +29,6 @@
 		"url": "git@github.com:javadbat/jb-input-react.git"
   },
   "dependencies": {
-    "jb-input": ">=2.4.0"
+    "jb-input": ">=2.6.0"
   }
 }
