@@ -1,6 +1,6 @@
 # JBInput React
 
-this component is React.js wrapper for [jb-input](https://www.npmjs.com/package/jb-input) web component
+this component is React.js wrapper for [jb-input](https://www.npmjs.com/package/jb-input) web component.
 
 text input `react component` with this benefit:
 
