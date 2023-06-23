@@ -29,7 +29,7 @@ npm i jb-input-react
 ```
 in your jsx file
 ```js
-import JBInput from 'jb-input-react';
+import {JBInput} from 'jb-input-react';
 ```
 ``` jsx
 <JBInput class="" label="لیبل" message="متن ثابت زیر کادر متن"></JBInput>

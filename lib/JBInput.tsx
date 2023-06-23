@@ -2,12 +2,30 @@ import React, { useRef, useEffect, useImperativeHandle, useState, useCallback } 
 import PropTypes from 'prop-types';
 import 'jb-input';
 import { useEvent } from '../../custom-hooks/UseEvent';
+import { JBInputValidationItem, NumberFieldParameterInput } from 'jb-input/dist/Types';
+// eslint-disable-next-line no-duplicate-imports
+import { JBInputWebComponent } from 'jb-input';
+declare global {
+    // eslint-disable-next-line @typescript-eslint/no-namespace
+    namespace JSX {
+      interface IntrinsicElements {
+        'jb-input': JBInputType;
+      }
+      interface JBInputType extends React.DetailedHTMLProps<React.HTMLAttributes<JBInputWebComponent>, JBInputWebComponent> {
+        class?:string,
+        label?: string,
+        name?:string,
+        message?:string,
+        // ref:React.RefObject<JBDateInputWebComponent>,
+      }
+    }
+}
 // eslint-disable-next-line react/display-name
-const JBInput = React.forwardRef((props, ref) => {
+export const JBInput = React.forwardRef((props:JBInputProps, ref) => {
     /**
      * @type {React.MutableRefObject<HTMLInputElement>}
      */
-    const element = useRef();
+    const element = useRef<JBInputWebComponent>(null);
     const [refChangeCount, refChangeCountSetter] = useState(0);
     useImperativeHandle(
         ref,
@@ -22,7 +40,7 @@ const JBInput = React.forwardRef((props, ref) => {
         if (typeof props.onChange === "function") {
             props.onChange(e);
         }
-    });
+    },[props.onChange]);
     const onKeydown = useCallback((e)=>{
         if (typeof props.onKeydown === "function") {
             props.onKeydown(e);
@@ -55,41 +73,44 @@ const JBInput = React.forwardRef((props, ref) => {
         }
     },[props.onInput]);
     const onBeforeInput = useCallback((e)=>{
-        if (typeof props.onBeforeInput == 'function' && e instanceof InputEvent) {
-            props.onBeforeInput(e);
+        if (typeof props.onBeforeinput == 'function' && e instanceof InputEvent) {
+            props.onBeforeinput(e);
         }
-    },[props.onBeforeInput]);
+    },[props.onBeforeinput]);
     useEffect(() => {
         let value = props.value;
         if (props.value == null || props.value === undefined) {
             value = '';
         }
-        element.current.value = value;
+        if(element && element.current && element.current.value){
+            element.current.value = value?.toString() || "";
+        }
     }, [props.value]);
     useEffect(() => {
-        element.current.setAttribute('type', props.type);
+        if(props.type){
+            element?.current?.setAttribute('type', props.type);
+        }
     }, [props.type]);
     useEffect(() => {
-        element.current.validationList = props.validationList || [];
+        if(element && element.current){
+            element.current.validationList = props.validationList || [];
+        }
     }, [props.validationList]);
     useEffect(() => {
-        element.current.setAttribute('direction', props.direction);
-    }, [props.direction]);
-    useEffect(() => {
         if (typeof props.numberFieldParameter == "object") {
-            element.current.setNumberFieldParameter(props.numberFieldParameter);
+            element?.current?.setNumberFieldParameter(props.numberFieldParameter);
         }
     }, [props.numberFieldParameter]);
     useEffect(() => {
         if (typeof props.disabled == "boolean") {
-            element.current.setAttribute('disabled', `${props.disabled}`);
+            element?.current?.setAttribute('disabled', `${props.disabled}`);
         }
     }, [props.disabled]);
     useEffect(() => {
         if(props.inputmode){
-            element.current.setAttribute('inputmode',props.inputmode);
+            element.current?.setAttribute('inputmode',props.inputmode);
         }else{
-            element.current.removeAttribute('inputmode');
+            element.current?.removeAttribute('inputmode');
         }
     }
     , [props.inputmode]);
@@ -107,13 +128,36 @@ const JBInput = React.forwardRef((props, ref) => {
         </jb-input>
     );
 });
-
+export type JBInputProps = {
+    label?: string,
+    name?:string,
+    className?:string,
+    message?:string,
+    value?: string | number,
+    validationList?: JBInputValidationItem[],
+    // usePersianNumber?: boolean,
+    type?: string,
+    onEnter?: (e:CustomEvent)=>void,
+    onInput?: (e:InputEvent)=>void,
+    onBeforeinput?:(e:InputEvent)=>void,
+    onFocus?: (e:FocusEvent)=>void,
+    onBlur?: (e:FocusEvent)=>void,
+    onKeyup?: (e:KeyboardEvent)=>void,
+    onKeydown?: (e:KeyboardEvent)=>void,
+    onChange?: (e:Event)=>void,
+    placeholder?: string,
+    numberFieldParameter?: NumberFieldParameterInput,
+    disabled?: boolean,
+    inputmode?: string,
+    children?:any,
+}
 JBInput.propTypes = {
     label: PropTypes.string,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     type: PropTypes.string,
+    message:PropTypes.string,
     onChange: PropTypes.func,
-    onKeyUp: PropTypes.func,
+    onKeyup: PropTypes.func,
     onEnter: PropTypes.func,
     onInput: PropTypes.func,
     onFocus: PropTypes.func,
@@ -122,11 +166,9 @@ JBInput.propTypes = {
     className: PropTypes.string,
     validationList: PropTypes.array,
     placeholder: PropTypes.string,
-    direction: PropTypes.string,
     numberFieldParameter: PropTypes.object,
     disabled: PropTypes.bool,
     inputmode: PropTypes.string,
 };
 JBInput.displayName = "JBInput";
-export default JBInput;
 

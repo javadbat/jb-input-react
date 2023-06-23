@@ -1,2 +1,1 @@
-import JBInput from './dist/JBInput.js';
-export default JBInput;
+export {JBInput} from './dist/JBInput.js';
