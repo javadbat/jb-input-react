@@ -14,7 +14,7 @@
     "input",
     "react component"
   ],
-  "version": "3.0.0",
+  "version": "3.0.1",
   "bugs": "https://github.com/javadbat/jb-input-react/issues",
   "license": "MIT",
   "files": [
@@ -24,6 +24,7 @@
     "dist/"
   ],
   "main": "index.js",
+  "types": "./dist/jb-input/lib/JBInput.d.ts",
   "repository": {
 		"type": "git",
 		"url": "git@github.com:javadbat/jb-input-react.git"
