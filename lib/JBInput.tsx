@@ -36,7 +36,7 @@ export const JBInput = React.forwardRef((props:JBInputProps, ref) => {
     useEffect(() => {
         refChangeCountSetter(refChangeCount + 1);
     }, [element.current]);
-    const onChange = useCallback((e)=>{
+    const onChange = useCallback((e:JBInputEventType<Event>)=>{
         if (typeof props.onChange === "function") {
             props.onChange(e);
         }
@@ -57,22 +57,22 @@ export const JBInput = React.forwardRef((props:JBInputProps, ref) => {
             props.onEnter(e);
         }
     },[props.onEnter]);
-    const onFocus = useCallback((e)=>{
+    const onFocus = useCallback((e:JBInputEventType<FocusEvent>)=>{
         if (props.onFocus && e instanceof FocusEvent) {
             props.onFocus(e);
         }
     },[props.onFocus]);
-    const onBlur = useCallback((e)=>{
+    const onBlur = useCallback((e:JBInputEventType<FocusEvent>)=>{
         if (props.onBlur && e instanceof FocusEvent) {
             props.onBlur(e);
         }
     },[props.onBlur]);
-    const onInput = useCallback((e)=>{
+    const onInput = useCallback((e:JBInputEventType<InputEvent>)=>{
         if (typeof props.onInput == 'function' && e instanceof InputEvent) {
             props.onInput(e);
         }
     },[props.onInput]);
-    const onBeforeInput = useCallback((e)=>{
+    const onBeforeInput = useCallback((e:JBInputEventType<InputEvent>)=>{
         if (typeof props.onBeforeinput == 'function' && e instanceof InputEvent) {
             props.onBeforeinput(e);
         }
@@ -82,7 +82,7 @@ export const JBInput = React.forwardRef((props:JBInputProps, ref) => {
         if (props.value == null || props.value === undefined) {
             value = '';
         }
-        if(element && element.current && element.current.value){
+        if(element && element.current && element.current){
             element.current.value = value?.toString() || "";
         }
     }, [props.value]);
@@ -128,6 +128,9 @@ export const JBInput = React.forwardRef((props:JBInputProps, ref) => {
         </jb-input>
     );
 });
+export type JBInputEventType<T> = T & {
+    target: JBInputWebComponent
+}
 export type JBInputProps = {
     label?: string,
     name?:string,
@@ -137,14 +140,14 @@ export type JBInputProps = {
     validationList?: JBInputValidationItem[],
     // usePersianNumber?: boolean,
     type?: string,
-    onEnter?: (e:CustomEvent)=>void,
-    onInput?: (e:InputEvent)=>void,
-    onBeforeinput?:(e:InputEvent)=>void,
-    onFocus?: (e:FocusEvent)=>void,
-    onBlur?: (e:FocusEvent)=>void,
-    onKeyup?: (e:KeyboardEvent)=>void,
-    onKeydown?: (e:KeyboardEvent)=>void,
-    onChange?: (e:Event)=>void,
+    onEnter?: (e:JBInputEventType<CustomEvent>)=>void,
+    onInput?: (e:JBInputEventType<InputEvent>)=>void,
+    onBeforeinput?:(e:JBInputEventType<InputEvent>)=>void,
+    onFocus?: (e:JBInputEventType<FocusEvent>)=>void,
+    onBlur?: (e:JBInputEventType<FocusEvent>)=>void,
+    onKeyup?: (e:JBInputEventType<KeyboardEvent>)=>void,
+    onKeydown?: (e:JBInputEventType<KeyboardEvent>)=>void,
+    onChange?: (e:JBInputEventType<Event>)=>void,
     placeholder?: string,
     numberFieldParameter?: NumberFieldParameterInput,
     disabled?: boolean,
