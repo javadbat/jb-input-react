@@ -16,6 +16,8 @@ text input `react component` with this benefit:
 
 - custom display for password and number input.
 
+- support typescript
+
 ##demo image:    
 ![](pass.png)
 ![](passShow.png)
