@@ -136,7 +136,7 @@ export type JBInputProps = {
     name?:string,
     className?:string,
     message?:string,
-    value?: string | number | null,
+    value: string | number | null | undefined,
     validationList?: JBInputValidationItem[],
     // usePersianNumber?: boolean,
     type?: string,
