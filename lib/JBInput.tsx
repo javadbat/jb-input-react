@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useImperativeHandle, useState, useCallback } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import 'jb-input';
 import { useEvent } from '../../custom-hooks/UseEvent';
 import { JBInputValidationItem, NumberFieldParameterInput } from 'jb-input/dist/Types';
@@ -132,11 +132,11 @@ export type JBInputEventType<T> = T & {
     target: JBInputWebComponent
 }
 export type JBInputProps = {
-    label?: string,
+    label?: string ,
     name?:string,
     className?:string,
     message?:string,
-    value?: string | number,
+    value?: string | number | null,
     validationList?: JBInputValidationItem[],
     // usePersianNumber?: boolean,
     type?: string,
@@ -154,24 +154,24 @@ export type JBInputProps = {
     inputmode?: string,
     children?:any,
 }
-JBInput.propTypes = {
-    label: PropTypes.string,
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    type: PropTypes.string,
-    message:PropTypes.string,
-    onChange: PropTypes.func,
-    onKeyup: PropTypes.func,
-    onEnter: PropTypes.func,
-    onInput: PropTypes.func,
-    onFocus: PropTypes.func,
-    onBlur: PropTypes.func,
-    onBeforeinput: PropTypes.func,
-    className: PropTypes.string,
-    validationList: PropTypes.array,
-    placeholder: PropTypes.string,
-    numberFieldParameter: PropTypes.object,
-    disabled: PropTypes.bool,
-    inputmode: PropTypes.string,
-};
+// JBInput.propTypes = {
+//     label: PropTypes.string,
+//     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.n]),
+//     type: PropTypes.string,
+//     message:PropTypes.string,
+//     onChange: PropTypes.func,
+//     onKeyup: PropTypes.func,
+//     onEnter: PropTypes.func,
+//     onInput: PropTypes.func,
+//     onFocus: PropTypes.func,
+//     onBlur: PropTypes.func,
+//     onBeforeinput: PropTypes.func,
+//     className: PropTypes.string,
+//     validationList: PropTypes.array,
+//     placeholder: PropTypes.string,
+//     numberFieldParameter: PropTypes.object,
+//     disabled: PropTypes.bool,
+//     inputmode: PropTypes.string,
+// };
 JBInput.displayName = "JBInput";
 
