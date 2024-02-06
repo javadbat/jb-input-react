@@ -152,7 +152,7 @@ export type JBInputProps = {
     numberFieldParameter?: NumberFieldParameterInput,
     disabled?: boolean,
     inputmode?: string,
-    children?:any,
+    children?:React.ReactNode | React.ReactNode[],
 }
 // JBInput.propTypes = {
 //     label: PropTypes.string,
