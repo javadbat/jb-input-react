@@ -2,7 +2,7 @@
 
 this component is React.js wrapper for [jb-input](https://www.npmjs.com/package/jb-input) web component.
 
-text input `react component` with this benefit:
+text input `react component` with these benefits:
 
 - easy to add custom regex or function validation.
 
