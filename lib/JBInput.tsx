@@ -1,8 +1,8 @@
-import React, { useRef, useEffect, useImperativeHandle, useState, useCallback } from 'react';
+import React ,{ useRef, useEffect, useImperativeHandle, useState, useCallback, DetailedHTMLProps, HTMLAttributes,forwardRef } from 'react';
 import 'jb-input';
 import { useEvent } from '../../custom-hooks/UseEvent';
 // eslint-disable-next-line no-duplicate-imports
-import { type JBInputWebComponent } from 'jb-input';
+import { JBInputWebComponent } from 'jb-input';
 import { type JBInputValidationItem, type NumberFieldParameterInput } from 'jb-input/lib/Types';
 declare global {
     // eslint-disable-next-line @typescript-eslint/no-namespace
@@ -10,7 +10,7 @@ declare global {
         interface IntrinsicElements {
             'jb-input': JBInputType;
         }
-        interface JBInputType extends React.DetailedHTMLProps<React.HTMLAttributes<JBInputWebComponent>, JBInputWebComponent> {
+        interface JBInputType extends DetailedHTMLProps<HTMLAttributes<JBInputWebComponent>, JBInputWebComponent> {
             class?: string,
             label?: string,
             name?: string,
@@ -21,10 +21,7 @@ declare global {
     }
 }
 // eslint-disable-next-line react/display-name
-export const JBInput = React.forwardRef((props: JBInputProps, ref) => {
-  /**
-     * @type {React.MutableRefObject<HTMLInputElement>}
-     */
+export const JBInput = forwardRef((props: JBInputProps, ref) => {
   const element = useRef<JBInputWebComponent>(null);
   const [refChangeCount, refChangeCountSetter] = useState(0);
   useImperativeHandle(
