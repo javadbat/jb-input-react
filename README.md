@@ -74,11 +74,11 @@ you can set validation to your input by creating a validationList array and pass
     const validationList = [
         {
             validator: /.{3}/g,
-            message: 'عنوان حداقل باید سه کاکتر طول داشته باشد'
+            message: 'عنوان حداقل باید سه کارکتر طول داشته باشد'
         },
         #you can use function as a validator too
         {
-            validator: (inputedText)=>{return inputedText == "سلام"},
+            validator: (inputtedText)=>{return inputtedText == "سلام"},
             message: 'شما تنها میتوانید عبارت سلام را وارد کنید'
         },
     ]
@@ -106,17 +106,17 @@ click on + - button will call onChange event.
 
 ```javascript 
   const numberFieldParameter = {
-        //how many number you want to + or  - on user press buttons or use arrow keys defualt is 1
+        //how many number you want to + or  - on user press buttons or use arrow keys default is 1
         step:100,
-        // how many decimal input accept defualt is infinty
+        // how many decimal input accept default is infinity
         decimalPrecision:2,
-        // what char replaced to input if user paste some illeglal value defualt is '' (empty string)
+        // what char replaced to input if user paste some illegal value default is '' (empty string)
         invalidNumberReplacement:'0',
         // separate every 3 number with comma like 1000000 => 1,000,000
         useThousandSeparator:false,
         // which char we use to separate thousand number
         thousandSeparator:',',
-        //can input accept negativenumber or not
+        //can input accept negative number or not
         acceptNegative:true,
     }
 ```
