@@ -41,18 +41,18 @@ export const JBInput = React.forwardRef((props: JBInputProps, ref) => {
       props.onChange(e);
     }
   }, [props.onChange]);
-  const onKeydown = useCallback((e) => {
+  const onKeydown = useCallback((e:JBInputEventType<KeyboardEvent>) => {
     if (typeof props.onKeydown === "function") {
       props.onKeydown(e);
     }
   }, [props.onKeydown]);
-  const onKeyup = useCallback((e) => {
+  const onKeyup = useCallback((e:JBInputEventType<KeyboardEvent>) => {
     if (typeof props.onKeyup === "function") {
       props.onKeyup(e);
     }
   }, [props.onKeyup]);
 
-  const onEnter = useCallback((e) => {
+  const onEnter = useCallback((e:JBInputEventType<CustomEvent>) => {
     if (props.onEnter) {
       props.onEnter(e);
     }
