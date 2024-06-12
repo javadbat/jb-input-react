@@ -25,7 +25,7 @@
     "dist/"
   ],
   "main": "index.js",
-  "types": "./dist/jb-input/lib/JBInput.d.ts",
+  "types": "./dist/react-component/jb-input/lib/JBInput.d.ts",
   "repository": {
 		"type": "git",
 		"url": "git@github.com:javadbat/jb-input-react.git"
