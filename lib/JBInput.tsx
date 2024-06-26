@@ -1,9 +1,10 @@
 import React ,{ useRef, useEffect, useImperativeHandle, useState, useCallback, DetailedHTMLProps, HTMLAttributes,forwardRef } from 'react';
 import 'jb-input';
 import { useEvent } from '../../custom-hooks/UseEvent';
+import {type ValidationItem} from '../../../common/scripts/validation/validation-helper-types';
 // eslint-disable-next-line no-duplicate-imports
 import { JBInputWebComponent } from 'jb-input';
-import { type JBInputValidationItem, type NumberFieldParameterInput } from 'jb-input/lib/Types';
+import {type NumberFieldParameterInput } from 'jb-input/lib/Types';
 declare global {
     // eslint-disable-next-line @typescript-eslint/no-namespace
     namespace JSX {
@@ -134,7 +135,7 @@ export type JBInputProps = {
     className?: string,
     message?: string,
     value: string | number | null | undefined,
-    validationList?: JBInputValidationItem[],
+    validationList?: ValidationItem[],
     // usePersianNumber?: boolean,
     type?: string,
     onEnter?: (e: JBInputEventType<CustomEvent>) => void,
