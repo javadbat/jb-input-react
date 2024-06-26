@@ -1,6 +1,6 @@
 import React ,{ useRef, useEffect, useImperativeHandle, useState, useCallback, DetailedHTMLProps, HTMLAttributes,forwardRef } from 'react';
 import 'jb-input';
-import { useEvent } from '../../custom-hooks/UseEvent';
+import { useEvent } from '../../../common/hooks/use-event';
 import {type ValidationItem} from '../../../common/scripts/validation/validation-helper-types';
 // eslint-disable-next-line no-duplicate-imports
 import { JBInputWebComponent } from 'jb-input';

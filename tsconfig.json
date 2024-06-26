@@ -4,7 +4,10 @@
     },
     "include": [
         "../../common/scripts/**/*.ts",
+        "../../common/hooks/**/*.ts",
+        "../../common/hooks/**/*.js",
         "lib/**/*.ts",
+        "lib/**/*.tsx"
     ],
     "exclude": [
         "node_modules",
