@@ -4,7 +4,7 @@ import { useEvent } from '../../../common/hooks/use-event';
 import {type ValidationItem} from '../../../common/scripts/validation/validation-helper-types';
 // eslint-disable-next-line no-duplicate-imports
 import { JBInputWebComponent } from 'jb-input';
-import {type NumberFieldParameterInput } from 'jb-input/lib/Types';
+import {ValidationValue, type NumberFieldParameterInput } from 'jb-input/lib/types';
 declare global {
     // eslint-disable-next-line @typescript-eslint/no-namespace
     namespace JSX {
@@ -91,7 +91,7 @@ export const JBInput = forwardRef((props: JBInputProps, ref) => {
   }, [props.type]);
   useEffect(() => {
     if (element && element.current) {
-      element.current.validationList = props.validationList || [];
+      element.current.validation.list = props.validationList || [];
     }
   }, [props.validationList]);
   useEffect(() => {
@@ -135,7 +135,7 @@ export type JBInputProps = {
     className?: string,
     message?: string,
     value: string | number | null | undefined,
-    validationList?: ValidationItem[],
+    validationList?: ValidationItem<ValidationValue>[],
     // usePersianNumber?: boolean,
     type?: string,
     onEnter?: (e: JBInputEventType<CustomEvent>) => void,
