@@ -3,8 +3,9 @@ import 'jb-input';
 import { useEvent } from '../../../common/hooks/use-event';
 import {type ValidationItem} from '../../../common/scripts/validation/validation-helper-types';
 // eslint-disable-next-line no-duplicate-imports
-import { JBInputWebComponent } from 'jb-input';
-import {ValidationValue, type NumberFieldParameterInput } from 'jb-input/lib/types';
+import {JBInputWebComponent } from 'jb-input';
+import {type ValidationValue, type NumberFieldParameterInput , type JBInputEventType} from 'jb-input/types';
+
 declare global {
     // eslint-disable-next-line @typescript-eslint/no-namespace
     namespace JSX {
@@ -126,9 +127,6 @@ export const JBInput = forwardRef((props: JBInputProps, ref) => {
     </jb-input>
   );
 });
-export type JBInputEventType<T> = T & {
-    target: JBInputWebComponent
-}
 export type JBInputProps = {
     label?: string,
     name?: string,
