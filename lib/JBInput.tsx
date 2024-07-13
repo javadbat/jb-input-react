@@ -4,7 +4,7 @@ import { useEvent } from '../../../common/hooks/use-event';
 import {type ValidationItem} from '../../../common/scripts/validation/validation-helper-types';
 // eslint-disable-next-line no-duplicate-imports
 import {JBInputWebComponent } from 'jb-input';
-import {type ValidationValue, type NumberFieldParameterInput , type JBInputEventType} from 'jb-input/types';
+import {type ValidationValue , type JBInputEventType} from 'jb-input/types';
 
 declare global {
     // eslint-disable-next-line @typescript-eslint/no-namespace
@@ -96,11 +96,6 @@ export const JBInput = forwardRef((props: JBInputProps, ref) => {
     }
   }, [props.validationList]);
   useEffect(() => {
-    if (typeof props.numberFieldParameter == "object") {
-      element?.current?.setNumberFieldParameter(props.numberFieldParameter);
-    }
-  }, [props.numberFieldParameter]);
-  useEffect(() => {
     if (typeof props.disabled == "boolean") {
       element?.current?.setAttribute('disabled', `${props.disabled}`);
     }
@@ -145,7 +140,6 @@ export type JBInputProps = {
     onKeydown?: (e: JBInputEventType<KeyboardEvent>) => void,
     onChange?: (e: JBInputEventType<Event>) => void,
     placeholder?: string,
-    numberFieldParameter?: NumberFieldParameterInput,
     disabled?: boolean,
     inputmode?: string,
     children?: React.ReactNode | React.ReactNode[],
