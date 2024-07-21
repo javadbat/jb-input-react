@@ -1,1 +1,1 @@
-export {JBInput} from './dist/JBInput.js';
+export {JBInput,useJBInputAttribute,useJBInputEvents} from './dist/JBInput.js';

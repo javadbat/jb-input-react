@@ -5,6 +5,7 @@ import {JBInputWebComponent } from 'jb-input';
 import { JBInputEvents, useJBInputEvents } from './events-hook';
 import { JBInputAttributes, useJBInputAttribute } from './attributes-hook';
 
+export { JBInputEvents, useJBInputEvents,JBInputAttributes, useJBInputAttribute};
 interface JBInputType extends DetailedHTMLProps<HTMLAttributes<JBInputWebComponent>, JBInputWebComponent> {
   class?: string,
   label?: string,
