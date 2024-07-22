@@ -180,15 +180,11 @@ if you want to set a custom style to this web-component all you need is to set c
 
 ## add custom element in input box
 
-in JBInput you can put icon or any other custom html DOM in input box. to doing so you just have to plae custom DOM in JBInput tag and add slot="start-section" or slot="end-section" to place it before or after input field. for better result i suggest you use JBInput-inbox-element tag but its optional and you can use your own custom tag too. JBInput-inbox-element will add some style to make sure your icon will place in center and will not overflow and make your job easier if you want more controll you can skip it and use your own tag. example:
+in JBInput you can put icon or any other custom html DOM in input box. to doing so you just have to place custom DOM in JBInput tag and add `slot="start-section"` or `slot="end-section"` to place it before or after input field. 
 
 ``` javascript
 <JBInput>
-    <JBInput-inbox-element slot="end-section">
-        <div>after</div>
-    </JBInput-inbox-element>
-    <JBInput-inbox-element slot="start-section">
-        <div>before</div>
-    </JBInput-inbox-element>
+    <div slot="end-section">after</div>
+    <div slot="start-section">before</div>
 </JBInput>
 ```
