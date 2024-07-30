@@ -4,7 +4,7 @@ import { RefObject, useEffect } from "react";
 
 export type JBInputAttributes = {
     message?: string,
-    value: string | number | null | undefined,
+    value?: string | number | null | undefined,
     validationList?: ValidationItem<ValidationValue>[],
     type?: string,
     placeholder?: string,
