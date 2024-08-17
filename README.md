@@ -34,34 +34,32 @@ in your jsx file
 import {JBInput} from 'jb-input-react';
 ```
 ``` jsx
-<JBInput class="" label="لیبل" message="متن ثابت زیر کادر متن"></JBInput>
+<JBInput class="" label="label:" message="hint message under textbox"></JBInput>
 ```
 
 
 ## events
-- onChange
-```jsx 
-    <JBInput onChange={(event) => console.log(event.target.value)}></JBInput>
-```
-- onKeyUp
-```jsx 
+
+```jsx
+    //when default property are defined best time for impl your config
+    <JBInput onInit={(event) => {}}></JBInput>
+
+    //when dom bound and rendered in browser dom 3 and you can access all property
+    <JBInput onLoad={(event) => {}}></JBInput>
+
+    //keyboard event
+    <JBInput onKeyDown={(event) => console.log(event.target.value)}></JBInput>
     <JBInput onKeyUp={(event) => console.log(event.target.value)}></JBInput>
-```
-- onEnter
-```jsx 
+    <JBInput onKeyPress={(event) => console.log(event.target.value)}></JBInput>
+    <JBInput onChange={(event) => console.log(event.target.value)}></JBInput>
+    // when user press enter on type good for situation you want so submit form or call search function on user press enter. 
     <JBInput onEnter={(event) => console.log(event.target.value)}></JBInput>
-```
-- onKeydown
-```jsx 
-    <JBInput onKeydown={(event) => console.log(event.target.value)}></JBInput>
-```
-- onFocus
-```jsx 
+    //focus event
     <JBInput onFocus={(event) => console.log(event.target.value)}></JBInput>
-```
-- onBlur
-```jsx 
     <JBInput onBlur={(event) => console.log(event.target.value)}></JBInput>
+    //input Event
+    <JBInput onInput={(event) => console.log(event.target.value)}></JBInput>
+    <JBInput onBeforeInput={(event) => console.log(event.target.value)}></JBInput>
 ```
 
 
