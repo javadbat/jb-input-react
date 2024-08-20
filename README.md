@@ -18,10 +18,6 @@ text input `react component` with these benefits:
 
 - support typescript
 
-##demo image:    
-![](pass.png)
-![](passShow.png)
-
 ## install
 
 ### using npm
