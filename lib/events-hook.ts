@@ -1,5 +1,5 @@
 import { RefObject, useCallback } from "react";
-import { useEvent } from "../../../common/hooks/use-event";
+import { useEvent } from "../../../common/hooks/use-event.js";
 import { JBInputWebComponent } from "jb-input";
 import { type JBInputEventType } from "jb-input/types";
 

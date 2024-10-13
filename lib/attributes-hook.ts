@@ -10,6 +10,7 @@ export type JBInputAttributes = {
     type?: string,
     placeholder?: string,
     disabled?: boolean,
+    required?:boolean,
     inputmode?: string,
     label?: string,
     name?: string,
@@ -42,6 +43,11 @@ export function useJBInputAttribute(element: RefObject<JBInputWebComponent>, pro
       element?.current?.setAttribute('disabled', `${props.disabled}`);
     }
   }, [props.disabled]);
+  useEffect(() => {
+    if (typeof props.required == "boolean") {
+      element?.current?.setAttribute('required', `${props.required}`);
+    }
+  }, [props.required]);
   useEffect(() => {
     if (props.inputmode) {
       element.current?.setAttribute('inputmode', props.inputmode);
