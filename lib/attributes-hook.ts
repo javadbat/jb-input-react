@@ -31,6 +31,9 @@ export function useJBInputAttribute(element: RefObject<JBInputWebComponent>, pro
     }
   }, [props.type]);
   useEffect(() => {
+    element?.current?.setAttribute('name', props.name || '');
+  }, [props.name]);
+  useEffect(() => {
     if (element && element.current) {
       element.current.validation.list = props.validationList || [];
     }
