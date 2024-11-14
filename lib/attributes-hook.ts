@@ -1,6 +1,5 @@
-import { JBInputWebComponent } from "jb-input";
-import { ValidationItem } from "jb-validation/types.js";
-import { ValidationValue } from "jb-input/types.js";
+import { JBInputWebComponent, type ValidationValue} from "jb-input";
+import { type ValidationItem } from "jb-validation";
 import { RefObject, useEffect } from "react";
 
 export type JBInputAttributes = {
