@@ -1,6 +1,6 @@
 import { RefObject, useCallback } from "react";
 import { useEvent } from "../../../common/hooks/use-event.js";
-import { JBInputWebComponent, type JBInputEventType} from "jb-input";
+import { type JBInputWebComponent, type JBInputEventType} from "jb-input";
 
 export type JBInputEvents = {
     onEnter?: (e: JBInputEventType<CustomEvent>) => void,
