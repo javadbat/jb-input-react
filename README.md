@@ -1,5 +1,8 @@
 # JBInput React
 
+> [!WARNING]  
+> this package is deprecated and moved to [jb-input/react](https://github.com/javadbat/jb-input/tree/main/react)
+
 this component is React.js wrapper for [jb-input](https://www.npmjs.com/package/jb-input) web component.
 
 text input `react component` with these benefits:
